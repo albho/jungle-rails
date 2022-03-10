@@ -4,21 +4,22 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Number of Categories</th>
-        <th>Number of Products</th>
+        <th><%= link_to 'Products', admin_products_path %></th>
+        <th><%= link_to 'Categories', admin_categories_path %></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>
-          <p><%= @categories_count %></p>
+          <p><%= @products_count %></p>
         </td>
         <td>
-          <p><%= @products_count %></p>
+          <p><%= @categories_count %></p>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<%= link_to 'See All Products', admin_products_path %>
+
+
