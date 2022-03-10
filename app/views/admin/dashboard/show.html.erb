@@ -2,19 +2,17 @@
 
 <div class="panel panel-default items">
   <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th><%= link_to 'Products', admin_products_path %></th>
-        <th><%= link_to 'Categories', admin_categories_path %></th>
-      </tr>
-    </thead>
     <tbody>
       <tr>
+        <th scope="row"><%= link_to 'View Products', admin_products_path %></th>
         <td>
-          <p><%= @products_count %></p>
+          <p>There are currently <strong><%= @products_count %></strong> products.</p>
         </td>
+      </tr>
+      <tr>
+        <th scope="row"><%= link_to 'View Categories', admin_categories_path %></th>
         <td>
-          <p><%= @categories_count %></p>
+          <p>There are currently <strong><%= @categories_count %></strong> categories.</p>
         </td>
       </tr>
     </tbody>
