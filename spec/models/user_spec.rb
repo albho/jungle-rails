@@ -20,5 +20,31 @@ RSpec.describe User, type: :model do
       end 
     end
 
+    context 'add user with correct password and confirmation' do
+      it 'will save successfully' do
+        @user.save
+
+        expect(@user).to be_present
+      end
+    end
+
+    context 'add user with incorrect password confirmation' do
+      it 'will return error about password' do
+        @user.password_confirmation = 'incorrect-confirmation'
+        @user.save
+
+        expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
+      end
+    end
+
+    context 'add user with empty password confirmation' do
+      it 'will return error about password' do
+        @user.password_confirmation = nil
+        @user.save
+
+        expect(@user.errors.full_messages).to include("Password confirmation can't be blank")
+      end
+    end
+
   end
 end
