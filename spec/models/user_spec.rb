@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'add user with empty password' do
-      it 'will return error about password' do
+      it 'will return error about empty password' do
         @user.password = nil
         @user.save
 
@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'add user with empty password confirmation' do
-      it 'will return error about password' do
+      it 'will return error about empty password confirmation' do
         @user.password_confirmation = nil
         @user.save
 
@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'add user with incorrect password confirmation' do
-      it 'will return error about password' do
+      it 'will return error about incorrect password confirmation' do
         @user.password_confirmation = 'incorrect-confirmation'
         @user.save
 
@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'add user with incorrect password length' do
-      it 'will return error about password length' do
+      it 'will return error about incorrect password length' do
         @user.password = '123'
         @user.password_confirmation = '123'
         @user.save
@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'add user without email' do
-      it 'will return error about no email' do
+      it 'will return error about empty email' do
         @user.email = nil
         @user.save
 
@@ -67,7 +67,7 @@ RSpec.describe User, type: :model do
     end
 
     context 'add user with non-unique email - case-insensitive' do
-      it 'return error about email being taken' do
+      it 'will return error about email being taken' do
         @user2 = User.new
         @user2.name = 'User Two'
         @user2.email = @user.email.upcase
