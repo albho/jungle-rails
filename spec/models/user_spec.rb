@@ -20,6 +20,15 @@ RSpec.describe User, type: :model do
       end 
     end
 
+    context 'add user without email' do
+      it 'will return error about no email' do
+        @user.email = nil
+        @user.save
+
+        expect(@user.errors.full_messages).to include("Email can't be blank")
+      end 
+    end
+
     context 'add user with correct password and confirmation' do
       it 'will save successfully' do
         @user.save
