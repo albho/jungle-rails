@@ -47,6 +47,16 @@ RSpec.describe User, type: :model do
       end
     end
 
+    context 'add user with incorrect password length' do
+      it 'will return error about password length' do
+        @user.password = '123'
+        @user.password_confirmation = '123'
+        @user.save
+
+        expect(@user.errors.full_messages).to include("Password is too short (minimum is 4 characters)")
+      end
+    end
+
     context 'add user without email' do
       it 'will return error about no email' do
         @user.email = nil
