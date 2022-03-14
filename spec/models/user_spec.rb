@@ -82,4 +82,29 @@ RSpec.describe User, type: :model do
     end
 
   end
+
+  describe '.authenticate_with_credentials' do
+
+    before(:each) do
+      @user.save
+    end
+
+    context 'log in user with correct credentials' do
+      it 'should return user object' do
+        user = User.authenticate_with_credentials @user.email, @user.password
+
+        expect(user).to be_instance_of(User)
+      end
+    end
+
+    context 'log in user with incorrect credentials' do
+      it 'should return user object' do
+        user = User.authenticate_with_credentials @user.email, 'incorrect-password'
+
+        expect(user).to eq(nil)
+      end
+    end
+
+  end
+
 end
