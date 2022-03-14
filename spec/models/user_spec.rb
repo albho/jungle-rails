@@ -98,13 +98,46 @@ RSpec.describe User, type: :model do
     end
 
     context 'log in user with incorrect credentials' do
-      it 'should return user object' do
+      it 'should not return user object' do
         user = User.authenticate_with_credentials @user.email, 'incorrect-password'
 
         expect(user).to eq(nil)
       end
     end
 
-  end
+    context 'log in user with email with whitespace' do
+      it 'should return user object' do
+        email_with_whitespace = ' ' + @user.email + ' '
+        user = User.authenticate_with_credentials email_with_whitespace, @user.password
 
+        expect(user).to be_instance_of(User)
+      end
+    end
+
+    context 'log in user with email with incorrect casing' do
+      it 'should return user object' do 
+        user = User.authenticate_with_credentials @user.email.upcase, @user.password
+
+        expect(user).to be_instance_of(User)
+      end
+    end
+
+    context 'log in user with email with incorrect email' do
+      it 'should not return user object' do 
+        incorrect_email = '1' + @user.email
+        user = User.authenticate_with_credentials incorrect_email, @user.password
+
+        expect(user).to eq(nil)
+      end
+    end
+
+    context 'log in user with email with incorrect password' do
+      it 'should not return user object' do 
+        user = User.authenticate_with_credentials @user.email, @user.password.upcase
+
+        expect(user).to eq(nil)
+      end
+    end
+
+  end
 end
