@@ -19,10 +19,9 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
   scenario "They click on a product" do
     visit root_path
 
-    # commented out b/c it's for debugging only
     first('h4').click
 
+    # save_and_open_screenshot
     expect(page).to have_css 'article.product-detail', count: 1
-    save_and_open_screenshot
   end
 end
