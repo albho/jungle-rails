@@ -21,6 +21,33 @@ Testing:
 
 ## Demo
 
+### Users can view all products on the home page.
+
+![all products](https://github.com/albho/jungle-rails/blob/master/docs/1-all-products.png?raw=true)
+
+### Users can view products filtered by category.
+
+![categories](https://github.com/albho/jungle-rails/blob/master/docs/2-categories.png?raw=true)
+
+### Users can view product details.
+
+![product details](https://github.com/albho/jungle-rails/blob/master/docs/3-product-details.png?raw=true)
+
+### Users can add items to cart, checkout with credit card, and receive an order confirmation.
+
+![cart](https://github.com/albho/jungle-rails/blob/master/docs/4-cart.png?raw=true)
+
+![checkout](https://github.com/albho/jungle-rails/blob/master/docs/5-checkout.png?raw=true)
+
+![order confirmation](https://github.com/albho/jungle-rails/blob/master/docs/6-order-confirmation.png?raw=true)
+
+![empty cart](https://github.com/albho/jungle-rails/blob/master/docs/7-empty-cart.png?raw=true)
+
+### Admins can view all products and create new ones.
+
+![admin products](https://github.com/albho/jungle-rails/blob/master/docs/8-admin-products.png?raw=true)
+
+![admin new product](https://github.com/albho/jungle-rails/blob/master/docs/9-admin-new-product.png?raw=true)
 
 ## Setup
 
